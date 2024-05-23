@@ -1,0 +1,25 @@
+.contenedor{
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    height: 100vh;           /* Altura completa de la vista */
+}
+.titulo{
+    font-family: "Raleway", sans-serif;
+}
+.inputs{
+    margin: 10px 30px;
+}
+.input_sesion{
+    width: 95%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.432);
+    outline: none;
+}
+.btn:hover{
+    outline: 1 px solid red;
+    background-color: white;
+    color: red;
+    transition: 1.5s;
+}
