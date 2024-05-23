@@ -13,6 +13,8 @@
     <!-- owl carousel -->
     <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.theme.default.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <!-- Bootstrap + Ollie main styles -->
 	<link rel="stylesheet" href="assets/css/ollie.css">
@@ -83,14 +85,14 @@
                             <div class="inputs">
                                 <div class="mb-3" style="margin-top: 5%;">
                                     <label for="exampleFormControlInput1" class="form-label">Correo Electronico</label>
-                                    <input type="text" class="input_sesion" required> 
+                                    <input type="text" class="input_sesion" id="email"> 
                                 </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
                                         <br>
-                                        <input type="text" class="input_sesion" required> 
+                                        <input type="text" class="input_sesion" id="pass"> 
                                     </div> 
-                                    <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 100px; ">Entrar</button>
+                                    <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 100px; " id="entrar">Entrar</button>
                             </div>
                     </center></form>
                 </div>
@@ -113,3 +115,62 @@
 
 </body>
 </html>
+
+<script>
+    import Swal from 'sweetalert2'
+
+    Swal.nombre({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+        });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('#entrar').click(function(){
+
+        if ($("#email").val() == ""){
+           Swal.fire({
+                   // icon: 'error',
+                    icon: 'error',
+                    title: '¿Algo mal?',
+                    text: 'Favor de Ingresar tu Correo',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Aceptar',
+                    timerProgressBar: true,
+                    timer: 2500
+                  });
+  
+          return false;
+        } if ($("#pass").val() == ""){
+           Swal.fire({
+                   // icon: 'error',
+                    icon: 'error',
+                    title: '¿Algo mal?',
+                    text: 'Favor de Ingresar tu Clave',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Aceptar',
+                    timerProgressBar: true,
+                    timer: 2500
+                  });
+  
+          return false;
+        }else if ($("#entrar").val() == ""){
+              Swal.fire({
+                       // icon: 'error',
+                       icon: 'success',
+                        title: '¡Hola de nuevo! ',
+                        text: 'Bienvenido',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Aceptar',
+                        confirmButtonColor: "#56E226",
+                        timerProgressBar: true,
+                        timer: 2500
+              });
+              return false;
+            }
+      });
+    });
+  </script>
