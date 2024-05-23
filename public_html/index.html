@@ -390,13 +390,13 @@
 
             <section id="buzon" class="buzon">
               <h3>Buzón</h3>
-              <form>
+              <form id="buzon1" method="post">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Caja de comentarios</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" id="caja" id="exampleInputEmail1" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text">¡Compartenos tu experiencia con nosotros!</div>
                 </div>
-                <button type="submit" class="btn btn-primary"><a href="login.html" style="color: white;">Enviar</a></button>
+                <button type="submit"  id="submit"  class="btn btn-primary">Enviar</button>
                 <br>
                 <br>
               </form>
@@ -442,6 +442,23 @@
 
     <!-- Ollie js -->
     <script src="assets/js/Ollie.js"></script>
+
+
+<!--Script sweetalert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('buzon1').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el envío del formulario
+
+            let name = document.getElementById('caja').value;
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Debes iniciar sesión para poder comentar",
+  
+});
+});
+    </script>
 
 </body>
 </html>
