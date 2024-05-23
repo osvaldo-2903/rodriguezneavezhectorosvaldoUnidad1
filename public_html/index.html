@@ -27,7 +27,7 @@
 
     <nav id="scrollspy" class="navbar navbar-light bg-light navbar-expand-lg fixed-top" data-spy="affix" data-offset-top="20">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="assets/imgs/logo.png" alt="" class="brand-img"><img src="assets/imgs/venmus-Photoroom.png-Photoroom.png" alt="" width="20%" height="10%"></a>
+            <a class="navbar-brand" href="index.html"><img src="assets/imgs/logo.png" alt="" class="brand-img"><img src="assets/imgs/venmus-Photoroom.png-Photoroom.png" alt="" width="20%" height="10%"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,7 +38,7 @@
                         <a class="nav-link" href="#home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Acerca de</a>
+                        <a class="nav-link" href="#about">Acerca </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#portfolio">Portfolio</a>
@@ -56,7 +56,15 @@
                         <a class="nav-link" href="#buzon">Buzón</a>
                     </li>
                     <li class="nav-item ml-0 ml-lg-4">
-                        <a class="nav-link btn btn-primary" href="components.html">Components</a>
+                        <div class="dropdown">
+                            <a class="btn btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(224, 78, 78);color: white;border-radius: 10px; ">
+                              Acceso
+                            </a>
+                            <ul class="dropdown-menu" style="border-radius: 10px;">
+                              <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                              <li><a class="dropdown-item" href="registro.html">Registrarme</a></li>
+                            </ul>
+                          </div>
                     </li>
                 </ul>
             </div>
@@ -118,7 +126,7 @@
                         </div>
                         <div class="infos-wrapper">
                             <h4 class="text-primary">+15 años siendo la mejor opcion</h4>
-                            <p>Meses siendo la mejor opción</p>
+                            <p>Experiencia</p>
                         </div>
                     </div>
                     <div class="widget">
@@ -157,16 +165,16 @@
 
     <section class="section">
         <div class="container">
-            <h6 class="xs-font mb-0">Blanditiis unde illum earum</h6>
-            <h3 class="section-title mb-4">Expertises</h3>
+            <h6 class="xs-font mb-0">Lo mejor para tu</h6>
+            <h3 class="section-title mb-4">Set Up</h3>
 
             <div class="row text-center">
                 <div class="col-lg-4">
                     <a href="javascript:void(0)" class="card border-0 text-dark">
                         <img class="card-img-top" src="assets/imgs/img-5.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
                         <span class="card-body">
-                            <h4 class="title mt-4">Codding &amp; Designing</h4>
-                            <p class="xs-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <h4 class="title mt-4">Comodidad y &amp; diseño</h4>
+                            <p class="xs-font">Los mejores diseños para una computadora lo puedes encontrar aquí.</p>
                         </span>
                     </a>
                 </div>
@@ -174,8 +182,8 @@
                     <a href="javascript:void(0)" class="card border-0 text-dark">
                         <img class="card-img-top" src="assets/imgs/img-11.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
                         <span class="card-body">
-                            <h4 class="title mt-4">Graphic Design</h4>
-                            <p class="xs-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <h4 class="title mt-4">Mejores gráficos</h4>
+                            <p class="xs-font">Nuestros equipos poseen los mejores componentes del mercado relacionado a calidad-precio.</p>
                         </span>
                     </a>
                 </div>
@@ -183,8 +191,8 @@
                     <a href="javascript:void(0)" class="card border-0 text-dark">
                         <img class="card-img-top" src="assets/imgs/img-7.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
                         <span class="card-body">
-                            <h4 class="title mt-4">Development</h4>
-                            <p class="xs-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <h4 class="title mt-4">Excelente rendimiento</h4>
+                            <p class="xs-font">Además de contar con buenos componentes, nuestros equipos poseen excelentes sistemas de enfriamiento.</p>
                         </span>
                     </a>
                 </div>
@@ -235,7 +243,7 @@
 
     <section class="section" id="testmonial">
         <div class="container">
-            <h6 class="xs-font mb-0">Culpa perferendis excepturi.</h6>
+            <h6 class="xs-font mb-0">Clientes que han comprado con nosotros.</h6>
             <h3 class="section-title">Testimonios</h3>
 
             <div id="owl-testmonial" class="owl-carousel owl-theme mt-4">
@@ -389,22 +397,23 @@
 
             <section id="buzon" class="buzon">
               <h3>Buzón</h3>
-              <form>
+              <form id="buzon1" method="post">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Caja de comentarios</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text">Comparte tu experiencia con nosotros!</div>
+                  
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit"  id="submit"  class="btn btn-primary">Enviar</button>
                 <br>
                 <br>
               </form>
                 <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
                   </ul>
             </section>
 
@@ -441,6 +450,23 @@
 
     <!-- Ollie js -->
     <script src="assets/js/Ollie.js"></script>
+
+
+<!--Script sweetalert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('buzon1').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el envío del formulario
+
+            let name = document.getElementById('caja').value;
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Debes iniciar sesión para poder comentar",
+  
+});
+});
+    </script>
 
 </body>
 </html>
