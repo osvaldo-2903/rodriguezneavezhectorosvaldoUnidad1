@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -364,17 +363,17 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8 col-lg-7">
 
-                    <form id="Contactanos" action="../public_html/assets/php/contactanos.php" method="post">
+                    <form class="contact-form">
                         <div class="form-row">
                             <div class="col form-group">
-                                <input type="text" class="form-control" name="Nombre" placeholder="Nombre">
+                                <input type="text" class="form-control" placeholder="Nombre">
                             </div>
                             <div class="col form-group">
-                                <input type="Correo" class="form-control" name="Correo" placeholder="Correo">
+                                <input type="email" class="form-control" placeholder="Correo">
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="5" class="form-control" name="Mensaje" placeholder="Escribe Un Mensaje"></textarea>
+                            <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Escribe Un Mensaje"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-block" value="Mandar Mensaje">
