@@ -204,9 +204,7 @@
         <div class="container">
             <h6 class="xs-font mb-0">¿No sabes que comprar?</h6>
             <h3 class="section-title pb-4">Especificaciones</h3>
-        </div>
-
-        <div id="owl-portfolio" class="owl-carousel owl-theme mt-4">
+            <div id="owl-portfolio" class="owl-carousel owl-theme mt-4">
             <a href="javascript:void(0)" class="item expertises-item">
                 <img src="assets/imgs/img-1.jpg"alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page" class="box-shadow">
                 <h6 class="mt-3 mb-2">Fuga asperiores</h6>
@@ -237,6 +235,7 @@
                 <h6 class="mt-3 mb-2">Actualizable y Futuro-Proof</h6>
                 <p class="xs-font">Sabemos que el mundo de los videojuegos está en constante evolución. Por eso, la Venmus Titan GX ha sido diseñada para ser fácilmente actualizable. Con su amplia caja y ranuras adicionales, podrás mejorar componentes como la memoria RAM, el almacenamiento o incluso la tarjeta gráfica en el futuro sin complicaciones.</p>
             </a>             
+        </div>
         </div>
     </section>
 
@@ -351,7 +350,56 @@
                     </h6>
                 </div>
             </div>
+            <br>
+            <br>
+            <center><h3 class="section-title mb-5">¿Buscas algo?</h3></center>
+
+            <nav class="navbar bg-body-primary">
+                <div class="container-fluid">
+                    <form class="d-flex" style="width: 100%;">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+                        <button class="btn btn" type="button" style="background-color: rgb(255, 93, 93); color: white; border-radius: 10px;" onclick="buscarProductos()">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+            <br>
+            <div id="resultado-busqueda" style="width: 100%; margin: auto; display: flex; align-items: center;">
+            
+            </div>
+            <center>
+                <template id="producto-template" style="width: 100%">
+                    <div class="card" style="width: 95%; margin: auto;">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+                    </div>
+                </template>
+            </center>
+            
         </div>
+        <style>
+        .container-fluid {
+            display: flex;
+            align-items: center;
+            }
+
+        #search-input {
+            width: 950px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .container-fluid .btn {
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        </style>
     </section>
     <section id="contact" class="section pb-0">
 
@@ -473,3 +521,4 @@
 
 </body>
 </html>
+<script src="../public_html/assets/js/busqueda.js"></script>
