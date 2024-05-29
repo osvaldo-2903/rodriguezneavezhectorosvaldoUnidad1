@@ -1,4 +1,6 @@
-
+<?php
+session_start(); // Inicia una nueva sesión o reanuda la existente
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +83,7 @@
                     <div class="carousel-item active">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="carousel-title">Los mejores dispositivos<br>al mejor precio</h1>
+                            <h5><?php echo "¡Bienvenido, " . $_SESSION['user_email'] . "!"; ?></h5>
                             <button type="submit" class="btn btn-primary btn-rounded" > <a class="nav-link" href="#about">Saber más</a></button>
                         </div>
                     </div>
@@ -352,6 +355,56 @@
                     </h6>
                 </div>
             </div>
+            <br>
+            <center><h3 class="section-title mb-5">¿Buscas algo?</h3></center>
+
+            <nav class="navbar bg-body-primary">
+                <div class="container-fluid">
+                    <form class="d-flex" style="width: 100%;">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+                        <button class="btn btn" type="button" style="background-color: rgb(255, 93, 93); color: white; border-radius: 10px;" onclick="buscarProductos()">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+            <br>
+            <div id="resultado-busqueda" style="width: 80%; height: 100%;margin-left: 1%;"></div>
+            <center>
+                <br>
+                <template id="producto-template">
+                    <br>
+                        <div class="card-body col-md-8">
+                            <h5 class="card-title"></h5>
+                            <img class="card-img-top" alt="Imagen del producto" style="width: 23%;" />
+                            <p class="card-text"></p>
+                            <button class="btn btn-primary" style="border-radius: 15px;">Comprar</button>
+                        </div>
+                    </div>
+                </template>
+                <br>
+            </center>
+            
+            
+        <style>
+        .container-fluid {
+            display: flex;
+            align-items: center;
+            }
+
+        #search-input {
+            width: 950px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .container-fluid .btn {
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        </style>
         </div>
     </section>
     <section id="contact" class="section pb-0">
@@ -459,3 +512,5 @@
 
 </body>
 </html>
+<script src="../public_html/assets/js/busqueda.js"></script>
+s

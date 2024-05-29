@@ -41,7 +41,12 @@ class User {
 
         $stmt->execute();
 
-        return $stmt->rowCount() > 0;
+        if ($stmt->rowCount() > 0) {
+            $_SESSION['user_email'] = $this->email; // Almacena el correo electrónico del usuario en una variable de sesión
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
@@ -55,13 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user->password = $_POST['pass'];
 
     if ($user->login()) {
-        header("Location: /venmus/public_html/index2.html");
+        header("Location: /venmus/public_html/index2.php"); // Redirige al usuario a index2.php
     } else {
         echo "Error al iniciar sesión.";
     }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
