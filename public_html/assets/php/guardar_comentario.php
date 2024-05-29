@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Guardar el comentario
     if ($coment->save()) {
-        header("Location: /venmus/public_html/assets/php/comentarios.php");
+        header("Location: /venmus/public_html/comentarios.php");
         exit();
     } else {
         echo "Error al guardar el comentario.";
