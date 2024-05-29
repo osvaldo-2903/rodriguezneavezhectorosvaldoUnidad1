@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +106,7 @@
                                         <br>
                                         <input type="text" class="input_sesion" id="pass"> 
                                     </div id="g-recaptcha-error"> 
-                                    <div class="g-recaptcha" data-sitekey="6LeoI-spAAAAAJb4w1XsVYSTPG4MiJ9sw_h24Rd9">
+                                    <div class="g-recaptcha" id="Captcha" data-sitekey="6LeoI-spAAAAAJb4w1XsVYSTPG4MiJ9sw_h24Rd9">
                                     </div>
                                     <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 100px; " id="entrar">Entrar</button>
                             </div>
@@ -172,6 +175,7 @@
                 });
 
                 return false;
+            
             } else if ($("#entrar").val() == "") {
                 Swal.fire({
                     // icon: 'error',
@@ -184,11 +188,13 @@
                     timerProgressBar: true,
                     timer: 2500
                 });
+                
                 return false;
             }
         });
     });
 </script>
+
 <script>
     function submitUserForm() {
         var response = grecaptcha.getResponse();
