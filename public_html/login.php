@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +28,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
 </head>
@@ -103,8 +105,8 @@
                                         <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
                                         <br>
                                         <input type="text" class="input_sesion" id="pass"> 
-                                    </div> 
-                                    <div class="g-recaptcha" data-sitekey="6LeQG-spAAAAAFBsmuYaqrLl6k_Dcsaj8sQYS8Af">
+                                    </div id="g-recaptcha-error"> 
+                                    <div class="g-recaptcha" id="Captcha" data-sitekey="6LeoI-spAAAAAJb4w1XsVYSTPG4MiJ9sw_h24Rd9">
                                     </div>
                                     <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 100px; " id="entrar">Entrar</button>
                             </div>
@@ -173,6 +175,7 @@
                 });
 
                 return false;
+            
             } else if ($("#entrar").val() == "") {
                 Swal.fire({
                     // icon: 'error',
@@ -185,11 +188,13 @@
                     timerProgressBar: true,
                     timer: 2500
                 });
+                
                 return false;
             }
         });
     });
 </script>
+
 <script>
     function submitUserForm() {
         var response = grecaptcha.getResponse();
