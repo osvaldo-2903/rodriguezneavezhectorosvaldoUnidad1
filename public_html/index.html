@@ -62,7 +62,7 @@
                             </a>
                             <ul class="dropdown-menu" style="border-radius: 10px;">
                               <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
-                              <li><a class="dropdown-item" href="registro.html">Registrarme</a></li>
+                              <li><a class="dropdown-item" href="registro.php">Registrarme</a></li>
                             </ul>
                           </div>
                     </li>
@@ -363,22 +363,23 @@
                 </div>
             </nav>
             <br>
-            <div id="resultado-busqueda" style="width: 100%; margin: auto; display: flex; align-items: center;">
-            
-            </div>
+            <div id="resultado-busqueda" style="width: 80%; height: 100%;margin-left: 1%;"></div>
             <center>
-                <template id="producto-template" style="width: 100%">
-                    <div class="card" style="width: 95%; margin: auto;">
-                        <div class="card-body">
+                <br>
+                <template id="producto-template">
+                    <br>
+                        <div class="card-body col-md-8">
                             <h5 class="card-title"></h5>
+                            <img class="card-img-top" alt="Imagen del producto" style="width: 23%;" />
                             <p class="card-text"></p>
-                            <button class="btn btn-primary">Comprar</button>
+                            <button class="btn btn-primary" style="border-radius: 15px;">Comprar</button>
                         </div>
                     </div>
                 </template>
+                <br>
             </center>
             
-        </div>
+            
         <style>
         .container-fluid {
             display: flex;
