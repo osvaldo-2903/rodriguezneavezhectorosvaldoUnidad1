@@ -1,4 +1,65 @@
 <?php
+session_start();
+class Database {
+    private $host = "localhost";
+    private $db_name = "venmus";
+    private $username = "root";
+    private $password = "";
+    public $conn;
+
+    public function getConnection() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn->exec("set names utf8");
+        } catch (PDOException $exception) {
+            echo "Error de conexión: " . $exception->getMessage();
+        }
+        return $this->conn;
+    }
+}
+class User {
+    private $conn;
+    private $table_name = "usuarios";
+    public $email;
+    public $password;
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function login() {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email AND pass = :pass LIMIT 1";
+        
+        $stmt = $this->conn->prepare($query);
+
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":pass", $this->password);
+
+        $stmt->execute();
+
+        return $stmt->rowCount() > 0;
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $database = new Database();
+    $db = $database->getConnection();
+
+    $user = new User($db);
+
+    $user->email = $_POST['email'];
+    $user->password = $_POST['pass'];
+
+    if ($user->login()) {
+        header("Location: /venmus/public_html/index2.html");
+    } else {
+        echo "Error al iniciar sesión.";
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -99,16 +160,16 @@
                             <div class="inputs">
                                 <div class="mb-3" style="margin-top: 5%;">
                                     <label for="exampleFormControlInput1" class="form-label">Correo Electronico</label>
-                                    <input type="text" class="input_sesion" id="email">
+                                    <input type="text" class="input_sesion" id="email" name="email">
                                 </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
                                         <br>
-                                        <input type="text" class="input_sesion" id="pass"> 
+                                        <input type="text" class="input_sesion" id="pass" name="pass"> 
                                     </div id="g-recaptcha-error"> 
                                     <div class="g-recaptcha" id="Captcha" data-sitekey="6LeoI-spAAAAAJb4w1XsVYSTPG4MiJ9sw_h24Rd9">
                                     </div>
-                                    <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 100px; " id="entrar">Entrar</button>
+                                    <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 100px; " id="entrar" name="entrar">Entrar</button>
                             </div>
                     </center>
                     </form>
@@ -174,21 +235,6 @@
                     timer: 2500
                 });
 
-                return false;
-            
-            } else if ($("#entrar").val() == "") {
-                Swal.fire({
-                    // icon: 'error',
-                    icon: 'success',
-                    title: '¡Hola de nuevo! ',
-                    text: 'Bienvenido',
-                    showConfirmButton: true,
-                    confirmButtonText: 'Aceptar',
-                    confirmButtonColor: "#56E226",
-                    timerProgressBar: true,
-                    timer: 2500
-                });
-                
                 return false;
             }
         });
