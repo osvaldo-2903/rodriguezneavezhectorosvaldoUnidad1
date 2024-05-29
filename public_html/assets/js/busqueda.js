@@ -2,34 +2,54 @@ function buscarProductos() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const productos = [
         {
-            nombre: 'PC Gamer Xtreme',
-            descripcion: 'Potente computadora diseñada para juegos de última generación. Equipada con procesador Intel Core i9, tarjeta gráfica NVIDIA GeForce RTX 3080 y 32GB de RAM.',
-            imagen: 'https://www.vhv.rs/dpng/d/480-4803653_avant-garde-gaming-pc-transparent-gaming-pc-png.png'
+            "nombre": "PC Gamer UltraForce",
+            "descripcion": "Una PC Gamer con procesador Intel Core i7, tarjeta gráfica NVIDIA GeForce RTX 3060 Ti y 32GB de RAM.",
+            "imagen": "https://cdn.pixabay.com/photo/2020/10/01/18/58/computer-5614128_1280.jpg"
         },
         {
-            nombre: 'Laptop UltraSlim',
-            descripcion: 'Portátil ultradelgada y ligera, perfecta para usuarios en movimiento. Con pantalla de 14 pulgadas, procesador Intel Core i7 y 512GB de almacenamiento SSD.',
-            imagen: 'https://tienda.starware.com.ar/wp-content/uploads/2021/05/auriculares-gamer-headset-eksa-e1000-v-surround-71-rgb-pc-ps4-verde-2331-3792-1536x1536.jpg'
+            "nombre": "Laptop Gamer PowerEdge",
+            "descripcion": "Una laptop gamer con pantalla de 15 pulgadas, procesador AMD Ryzen 7 y 512GB de almacenamiento SSD.",
+            "imagen": "https://cdn.pixabay.com/photo/2016/11/29/03/53/computer-1869236_1280.jpg"
         },
         {
-            nombre: 'PC Todo en Uno',
-            descripcion: 'Computadora compacta con todo integrado en la pantalla. Ideal para espacios reducidos. Incluye procesador AMD Ryzen 5, pantalla táctil de 24 pulgadas y 1TB de almacenamiento.',
-            imagen: 'https://th.bing.com/th/id/OIP.gLkoxXfO0qOq3h3fuF-ElQHaE8?pid=ImgDet&rs=1'
+            "nombre": "PC Gamer MegaPower",
+            "descripcion": "Una PC Gamer con procesador AMD Ryzen 9, tarjeta gráfica NVIDIA GeForce RTX 3090 y 64GB de RAM.",
+            "imagen": "https://cdn.pixabay.com/photo/2018/01/17/18/42/pc-3080755_1280.jpg"
         },
         {
-            nombre: 'Mini PC Multimedia',
-            descripcion: 'Pequeña pero potente, esta mini PC es perfecta para entretenimiento en el hogar. Con procesador Intel Core i5, gráficos integrados Intel UHD Graphics y 8GB de RAM.',
-            imagen: 'https://th.bing.com/th/id/OIP.JQwXHw9wSSWvVt6J0b-hmQHaE6?pid=ImgDet&rs=1'
+            "nombre": "Laptop Gamer UltraBlade",
+            "descripcion": "Una laptop gamer con pantalla de 17 pulgadas, procesador Intel Core i9 y 1TB de almacenamiento SSD.",
+            "imagen": "https://cdn.pixabay.com/photo/2016/11/29/05/26/apple-1868496_1280.jpg"
         },
         {
-            nombre: 'Estación de Trabajo Profesional',
-            descripcion: 'Diseñada para trabajo intensivo y aplicaciones profesionales. Equipada con procesador AMD Ryzen Threadripper, tarjeta gráfica NVIDIA Quadro RTX 5000 y 64GB de RAM.',
-            imagen: 'https://th.bing.com/th/id/R.51ee0c7b20643e6ee08e8196a6a7a2f6?rik=T3qEInnyqH0Wlg&pid=ImgRaw&r=0'
+            "nombre": "PC Gamer HyperX",
+            "descripcion": "Una PC Gamer con procesador Intel Core i9, tarjeta gráfica NVIDIA GeForce RTX 3080 y 32GB de RAM.",
+            "imagen": "https://cdn.pixabay.com/photo/2015/12/05/22/21/stock-1071728_1280.jpg"
         },
         {
-            nombre: 'Laptop Convertible 2 en 1',
-            descripcion: 'Versátil computadora portátil con pantalla táctil que se puede convertir en una tablet. Cuenta con procesador Intel Core i7, pantalla de 15 pulgadas y lápiz óptico.',
-            imagen: 'https://th.bing.com/th/id/OIP.61zRoVwJ81GdpJ6omtRUJgHaE6?pid=ImgDet&rs=1'
+            "nombre": "Laptop Gamer SwiftX",
+            "descripcion": "Una laptop gamer con pantalla de 14 pulgadas, procesador AMD Ryzen 5 y 256GB de almacenamiento SSD.",
+            "imagen": "https://cdn.pixabay.com/photo/2016/02/19/10/00/laptop-1209008_1280.jpg"
+        },
+        {
+            "nombre": "PC Gamer QuantumX",
+            "descripcion": "Una PC Gamer con procesador AMD Ryzen 7, tarjeta gráfica NVIDIA GeForce RTX 3070 y 16GB de RAM.",
+            "imagen": "https://cdn.pixabay.com/photo/2017/05/15/13/16/pc-2312990_1280.jpg"
+        },
+        {
+            "nombre": "Laptop Gamer LightX",
+            "descripcion": "Una laptop gamer con pantalla de 13 pulgadas, procesador Intel Core i5 y 128GB de almacenamiento SSD.",
+            "imagen": "https://cdn.pixabay.com/photo/2016/02/19/11/19/laptop-1209641_1280.jpg"
+        },
+        {
+            "nombre": "PC Gamer Xtreme X",
+            "descripcion": "Una actualización de nuestro modelo Xtreme, con procesador Intel Core i9 de última generación, tarjeta gráfica NVIDIA GeForce RTX 3090 y 64GB de RAM.",
+            "imagen": "https://cdn.pixabay.com/photo/2016/03/10/18/15/workspace-1245776_1280.jpg"
+        },
+        {
+            "nombre": "Laptop Gamer UltraFast X",
+            "descripcion": "Una laptop diseñada para los gamers en movimiento. Equipada con pantalla de 15 pulgadas, procesador Intel Core i9 y 1TB de almacenamiento SSD.",
+            "imagen": "https://cdn.pixabay.com/photo/2018/03/12/21/16/laptop-3228987_1280.jpg"
         }
     ];
     

@@ -1,3 +1,28 @@
+<?php
+require_once '../public_html/assets/php/conexion_bd.php';
+session_start();
+
+if(isset($_POST['registrar'])) 
+{
+	
+	$nombre=$_POST['nombre'];
+	$apellido=$_POST['apellido'];
+	$email=$_POST['email'];
+	$pass=$_POST['pass'];
+    $sql=$cnnPDO->prepare("INSERT INTO usuarios
+    (nombre, apellido, email, pass) VALUES (:nombre, :apellido, :email, :pass)");
+    $sql->bindParam(':nombre',$nombre);
+    $sql->bindParam(':apellido',$apellido);
+    $sql->bindParam(':email',$email);
+    $sql->bindParam(':pass',$pass);
+    $sql->execute();
+    unset($sql);
+    unset($cnnPDO);
+    echo '<center><h4>Producto Registrado Exitosamente</h4></center>';
+        
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +102,7 @@
         <div class="overlay">
             <div class="contenedor">
                 <div class="formulario" style="width: 350px; height: 80%; background-color: rgb(255, 255, 255); border-radius: 15px; margin-top: 60px;">
-                    <center><form>
+                    <center><form method="post">
                         <br>
                         <img src="assets/imgs/Snake.png" width="50px" alt="" srcset="">
                         <h5 class="tiutlo"> ¿Nuevo integrante? </h5>
@@ -85,21 +110,21 @@
                             <div class="inputs">
                                 <div class="mb-1" style="margin-top: 5%;">
                                     <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                                    <input type="text" class="input_registro" id="nombre"> 
+                                    <input type="text" class="input_registro" id="nombre" name="nombre"> 
                                 </div>
                                 <div class="mb-1">
                                     <label for="exampleFormControlInput1" class="form-label">Apellido</label>
-                                    <input type="text" class="input_registro" id="apellido"> 
+                                    <input type="text" class="input_registro" id="apellido" name="apellido"> 
                                 </div>
                                 <div class="mb-1">
                                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                    <input type="email" class="input_registro" id="email"> 
+                                    <input type="email" class="input_registro" id="email" name="email"> 
                                 </div>
                                 <div class="mb-1">
                                     <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-                                    <input type="password" class="input_registro" id="pass"> 
+                                    <input type="password" class="input_registro" id="pass" name="pass"> 
                                 </div> 
-                                    <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 130px; " id="entrar">Registrarme</button>
+                                    <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 130px; " id="entrar" name="registrar">Registrarme</button>
                             </div>
                     </center></form>
                 </div>
@@ -193,19 +218,6 @@
                         timer: 2500
                       });
       
-              return false;
-            } else if ($("#entrar").val() == ""){
-              Swal.fire({
-                       // icon: 'error',
-                       icon: 'success',
-                        title: 'Bienvenido',
-                        text: 'Registro Completo',
-                        showConfirmButton: true,
-                        confirmButtonText: 'Aceptar',
-                        confirmButtonColor: "#56E226",
-                        timerProgressBar: true,
-                        timer: 2500
-              });
               return false;
             }
           });
