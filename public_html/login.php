@@ -25,6 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
 
 
 
@@ -89,7 +90,7 @@
                 <div class="formulario"
                     style="width: 350px; height: 75%; background-color: rgb(255, 255, 255); border-radius: 15px">
                     <center>
-                        <form>
+                        <form submit="return submitUserForm();" method="post">
                             <br>
                             <img src="assets/imgs/Snake.png" width="80px" alt="" srcset="">
                             <h5 class="tiutlo">¡Bienvenido! </h5>
@@ -103,6 +104,8 @@
                                         <br>
                                         <input type="text" class="input_sesion" id="pass"> 
                                     </div> 
+                                    <div class="g-recaptcha" data-sitekey="6LeQG-spAAAAAFBsmuYaqrLl6k_Dcsaj8sQYS8Af">
+                                    </div>
                                     <button type="submit" class="btn btn-danger" style="margin-top: 10px; border-radius: 10px; width: 100px; " id="entrar">Entrar</button>
                             </div>
                     </center>
@@ -187,3 +190,17 @@
         });
     });
 </script>
+<script>
+    function submitUserForm() {
+        var response = grecaptcha.getResponse();
+        if(response.length == 0) {
+            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Please fill out the reCAPTCHA field.</span>';
+            return false;
+        }
+        return true;
+    }
+    
+    function verifyCaptcha() {
+        document.getElementById('g-recaptcha-error').innerHTML = '';
+    }
+    </script>
