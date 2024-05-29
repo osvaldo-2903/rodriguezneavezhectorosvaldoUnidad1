@@ -46,25 +46,25 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home" style="color: white;">Inicio</a>
+                        <a class="nav-link" href="index.html" style="color: white;">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Acerca</a>
+                        <a class="nav-link" href="index.html">Acerca</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                        <a class="nav-link" href="index.html">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#testmonial">Testmonial</a>
+                        <a class="nav-link" href="index.html">Testmonial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
+                        <a class="nav-link" href="index.html">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="index.html">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#buzon">Buzón</a>
+                        <a class="nav-link" href="index.html">Buzón</a>
                     </li>
                     <li class="nav-item ml-0 ml-lg-4">
                         <div class="dropdown">
@@ -73,8 +73,8 @@
                                 Acceso
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
-                                <li><a class="dropdown-item" href="registro.html">Registrarme</a></li>
+                                <li><a class="dropdown-item" href="login.php">Iniciar Sesion</a></li>
+                                <li><a class="dropdown-item" href="registro.php">Registrarme</a></li>
                             </ul>
                         </div>
                     </li>

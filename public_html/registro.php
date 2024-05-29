@@ -1,25 +1,71 @@
 <?php
-require_once '../public_html/assets/php/conexion_bd.php';
-session_start();
+class Database {
+    private $host = "localhost";
+    private $db_name = "venmus";
+    private $username = "root";
+    private $password = "";
+    public $conn;
 
-if(isset($_POST['registrar'])) 
-{
-	
-	$nombre=$_POST['nombre'];
-	$apellido=$_POST['apellido'];
-	$email=$_POST['email'];
-	$pass=$_POST['pass'];
-    $sql=$cnnPDO->prepare("INSERT INTO usuarios
-    (nombre, apellido, email, pass) VALUES (:nombre, :apellido, :email, :pass)");
-    $sql->bindParam(':nombre',$nombre);
-    $sql->bindParam(':apellido',$apellido);
-    $sql->bindParam(':email',$email);
-    $sql->bindParam(':pass',$pass);
-    $sql->execute();
-    unset($sql);
-    unset($cnnPDO);
-    echo '<center><h4>Producto Registrado Exitosamente</h4></center>';
+    public function getConnection() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn->exec("set names utf8");
+        } catch (PDOException $exception) {
+            echo "Error de conexión: " . $exception->getMessage();
+        }
+        return $this->conn;
+    }
+}
+
+class User {
+    private $conn;
+    private $table_name = "usuarios";
+
+    public $nombre;
+    public $apellido;
+    public $email;
+    public $password;
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function register() {
+        $query = "INSERT INTO " . $this->table_name . " (nombre, apellido, email, pass) VALUES (:nombre, :apellido, :email, :pass)";
         
+        $stmt = $this->conn->prepare($query);
+
+        $this->nombre = htmlspecialchars(strip_tags($this->nombre));
+        $this->apellido = htmlspecialchars(strip_tags($this->apellido));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+
+        $stmt->bindParam(":nombre", $this->nombre);
+        $stmt->bindParam(":apellido", $this->apellido);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":pass", $this->password);
+
+        return $stmt->execute();
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $database = new Database();
+    $db = $database->getConnection();
+
+    $user = new User($db);
+
+    $user->nombre = $_POST['nombre'];
+    $user->apellido = $_POST['apellido'];
+    $user->email = $_POST['email'];
+    $user->password = $_POST['pass'];
+
+    if ($user->register()) {
+        header("Location: /venmus/public_html/login.php");
+    } else {
+        echo "Error al registrar el usuario.";
+    }
 }
 ?>
 
@@ -61,25 +107,25 @@ if(isset($_POST['registrar']))
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Inicio</a>
+                        <a class="nav-link" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Acerca</a>
+                        <a class="nav-link" href="index.html">Acerca</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                        <a class="nav-link" href="index.html">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#testmonial">Testmonial</a>
+                        <a class="nav-link" href="index.html">Testmonial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
+                        <a class="nav-link" href="index.html">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="index.html">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#buzon">Buzón</a>
+                        <a class="nav-link" href="index.html">Buzón</a>
                     </li>
                     <li class="nav-item ml-0 ml-lg-4">
                         <div class="dropdown">
@@ -87,8 +133,8 @@ if(isset($_POST['registrar']))
                               Acceso
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
-                              <li><a class="dropdown-item" href="registro.html">Registrarme</a></li>
+                              <li><a class="dropdown-item" href="login.php">Iniciar Sesion</a></li>
+                              <li><a class="dropdown-item" href="registro.php">Registrarme</a></li>
                             </ul>
                           </div>
                     </li>
